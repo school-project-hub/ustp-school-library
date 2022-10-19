@@ -13,17 +13,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
-                  <h3 class="mb-3">Login Now</h3>
+                  <h3 class="mb-3">BOOK BORROWING SYSTEM <img src="assets/images/books.png" alt="books" style="height:4vh;" srcset=""></h3>
                     <div class="bg-white shadow rounded">
                         <div class="row">
                             <div class="col-md-7 pe-0">
                                 <div class="form-left h-100 py-5 px-5">
-                                    <form action="" class="row g-4">
+                                    <form action="login/index.php" class="row g-4" method="POST">
                                             <div class="col-12">
                                                 <label>Username<span class="text-danger">*</span></label>
                                                 <div class="input-group">
                                                     <div class="input-group-text"><i class="bi bi-person-fill"></i></div>
-                                                    <input type="text" class="form-control" placeholder="Enter Username">
+                                                    <input type="text" name="username" class="form-control" placeholder="Enter Username">
                                                 </div>
                                             </div>
     
@@ -31,7 +31,7 @@
                                                 <label>Password<span class="text-danger">*</span></label>
                                                 <div class="input-group">
                                                     <div class="input-group-text"><i class="bi bi-lock-fill"></i></div>
-                                                    <input type="text" class="form-control" placeholder="Enter Password">
+                                                    <input type="text" name="pw" class="form-control" placeholder="Enter Password">
                                                 </div>
                                             </div>
     
@@ -42,28 +42,33 @@
                                                 </div>
                                             </div>
     
-                                            <div class="col-sm-6">
-                                                <a href="#" class="float-end text-primary">Forgot Password?</a>
-                                            </div>
+                                           
     
                                             <div class="col-12">
-                                                <button type="submit" class="btn btn-primary px-4 float-end mt-4">login</button>
+                                                <button type="submit" class="btn btn-primary px-4 float-end mt-4" name="btn-login">login</button>
                                             </div>
                                     </form>
                                 </div>
                             </div>
                             <div class="col-md-5 ps-0 d-none d-md-block">
                                 <div class="form-right h-100 bg-primary text-white text-center pt-5">
-                                    <i class="bi bi-bootstrap"></i>
-                                    <h2 class="fs-1">Welcome Back!!!</h2>
+                                    
+                                    <img src="assets/images/ustp-logo.png" alt="ustp logo" srcset="">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <p class="text-end text-secondary mt-3">Bootstrap 5 Login Page Design</p>
+                    <p class="text-end text-secondary mt-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
+  <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+</svg>
+                    
+                        <a href="" style="text-decoration: none; color:grey;"> Developers </a>
+                        </p>
                 </div>
             </div>
         </div>
     </div>
+
 </body>
 </html>
