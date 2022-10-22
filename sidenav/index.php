@@ -12,6 +12,10 @@
       <div class="offcanvas-body bg-secondary">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
 
+        <li class="nav-item">
+            <a class="nav-link" href="..\dashboard/"><img src="..\assets/images/dashboard.png" class="navIcon" alt=""> Dashboard</a>
+          </li>
+
         <li class="nav-item dropdown ">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 			<img src="..\assets/images/book-lists.png" alt="" class="navIcon"> 
@@ -94,7 +98,8 @@
 <style>
 	.nav-link{
     text-align: left;
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold ;
 	color: white;
 }
 
