@@ -13,7 +13,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
-                  <h3 class="mb-3">BOOK BORROWING SYSTEM <img src="assets/images/books.png" alt="books" style="height:4vh;" srcset=""></h3>
+                  <h3 class="mb-3">SCHOOL LIBRARY <img src="assets/images/books.png" alt="books" style="height:4vh;" srcset=""></h3>
                     <div class="bg-white shadow rounded">
                         <div class="row">
                             <div class="col-md-7 pe-0">
@@ -31,7 +31,7 @@
                                                 <label>Password<span class="text-danger">*</span></label>
                                                 <div class="input-group">
                                                     <div class="input-group-text"><i class="bi bi-lock-fill"></i></div>
-                                                    <input type="text" name="pw" class="form-control" placeholder="Enter Password">
+                                                    <input type="password" name="pw" class="form-control" placeholder="Enter Password">
                                                 </div>
                                             </div>
     
