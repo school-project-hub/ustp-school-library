@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2022 at 05:17 PM
+-- Generation Time: Oct 23, 2022 at 09:23 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -31,9 +31,17 @@ CREATE TABLE `book` (
   `id` int(11) NOT NULL,
   `call_no` varchar(255) NOT NULL,
   `author` varchar(255) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `qty` int(11) NOT NULL
+  `title` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `book`
+--
+
+INSERT INTO `book` (`id`, `call_no`, `author`, `title`) VALUES
+(1, 'N101', 'Rrenzy', 'Elective 3'),
+(2, 'N102', 'rrenzy', 'Elective 4'),
+(3, 'N102', 'rrenzy', 'Elective 4');
 
 -- --------------------------------------------------------
 
@@ -96,7 +104,7 @@ CREATE TABLE `user` (
   `f_name` varchar(30) NOT NULL,
   `m_name` varchar(30) NOT NULL,
   `l_name` varchar(30) NOT NULL,
-  `birth` varchar(30) NOT NULL,
+  `birth` date NOT NULL,
   `sex` varchar(1) NOT NULL,
   `phone` varchar(15) NOT NULL,
   `email` varchar(100) NOT NULL,
@@ -104,6 +112,13 @@ CREATE TABLE `user` (
   `username` varchar(255) NOT NULL,
   `pw` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `f_name`, `m_name`, `l_name`, `birth`, `sex`, `phone`, `email`, `school_id`, `username`, `pw`) VALUES
+(1, 'RRENZ', 'D', 'AQUIT', '2022-10-17', 'M', '09062905452', 'aquit.reynaldo@gmail.com', '202054154', 'admin', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -152,7 +167,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `book`
 --
 ALTER TABLE `book`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `borrowed`
@@ -176,7 +191,7 @@ ALTER TABLE `returned`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
