@@ -48,8 +48,8 @@
   <div class="col-sm-3">
     <div class="card">
       <div class="card-body">
-			<a href=""><img src="..\assets/images/borrower.png" alt="" class="myIcon"></a>
-			<p class="card-text">Borrower-lists </p>
+			<a href="..\borrower/"><img src="..\assets/images/borrower.png" alt="" class="myIcon"></a>
+			<p class="card-text">Borrower </p>
       </div>
     </div>
   </div>
@@ -57,8 +57,8 @@
 	<div class="col-sm-3">
     <div class="card">
       <div class="card-body">
-			<a href=""><img src="..\assets/images/borrowed.png" alt="" class="myIcon"></a>
-			<p class="card-text">Borrowed books </p>
+			<a href="..\lend/"><img src="..\assets/images/borrowed.png" alt="" class="myIcon"></a>
+			<p class="card-text">Lend </p>
       </div>
     </div>
   </div>
