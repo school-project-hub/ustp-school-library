@@ -58,7 +58,7 @@
     <div class="card">
       <div class="card-body">
 			<a href="..\lend/"><img src="..\assets/images/borrowed.png" alt="" class="myIcon"></a>
-			<p class="card-text">Lend </p>
+			<p class="card-text">Lending books </p>
       </div>
     </div>
   </div>

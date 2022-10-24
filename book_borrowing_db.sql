@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 23, 2022 at 09:23 AM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.3
+-- Generation Time: Oct 24, 2022 at 09:48 AM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,7 +41,8 @@ CREATE TABLE `book` (
 INSERT INTO `book` (`id`, `call_no`, `author`, `title`) VALUES
 (1, 'N101', 'Rrenzy', 'Elective 3'),
 (2, 'N102', 'rrenzy', 'Elective 4'),
-(3, 'N102', 'rrenzy', 'Elective 4');
+(3, 'N102', 'rrenzy', 'Elective 4'),
+(5, '123', 'jera', 'jeram');
 
 -- --------------------------------------------------------
 
@@ -53,9 +54,16 @@ CREATE TABLE `borrowed` (
   `id` int(11) NOT NULL,
   `id_book` int(11) NOT NULL,
   `id_borrower` int(11) NOT NULL,
-  `date_borrowed` date NOT NULL,
-  `qty` int(11) NOT NULL
+  `date_borrowed` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `borrowed`
+--
+
+INSERT INTO `borrowed` (`id`, `id_book`, `id_borrower`, `date_borrowed`) VALUES
+(1, 1, 1, '2022-10-24'),
+(2, 1, 1, '2022-10-24');
 
 -- --------------------------------------------------------
 
@@ -75,6 +83,14 @@ CREATE TABLE `borrower` (
   `email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `borrower`
+--
+
+INSERT INTO `borrower` (`id`, `academic`, `f_name`, `m_name`, `l_name`, `school_id`, `course`, `phone`, `email`) VALUES
+(1, 'STUDENT', 'renz', 'dayondon', 'aquit', '2020305414', 'BSMB', '09062905452', 'renz@mail.com'),
+(3, 'SCHOOL STAFF', 'Guilelr', 'C', 'Cabatuan', '1111', 'STAFF', '09090909', 'guiler@mail.com');
+
 -- --------------------------------------------------------
 
 --
@@ -88,7 +104,6 @@ CREATE TABLE `returned` (
   `borrower` varchar(255) NOT NULL,
   `date_borrowed` date NOT NULL,
   `date_returned` date NOT NULL,
-  `qty` int(11) NOT NULL,
   `remarks` varchar(255) NOT NULL,
   `assisted_by` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -167,19 +182,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `book`
 --
 ALTER TABLE `book`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `borrowed`
 --
 ALTER TABLE `borrowed`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `borrower`
 --
 ALTER TABLE `borrower`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `returned`
