@@ -35,7 +35,7 @@
                 <th>Course</th>
                 <th>Phone</th>
                 <th>E-mail</th>
-								<th ><p style="float: right;">Action</p></th>
+								<th ><c style="float: right;">Action</c></th>
                
             </tr>
         </thead>
