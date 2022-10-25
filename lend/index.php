@@ -27,6 +27,7 @@ while($row2 = $result2->fetch_object()){
     <link rel="stylesheet" href="style.css">
     <?php require_once '..\assets/cdnjs/toplink.php'; ?>   
     <?php require_once '..\assets/getbootstrap v5.2/index.php'; ?>
+    <?php require_once '..\assets/cdnjs/ajax.php'; ?>
 
 </head>
 <body>
@@ -108,7 +109,6 @@ while($row2 = $result2->fetch_object()){
 
 		</div>
 		<!-- Modal -->
-		<form action="process.php" method="post"></form>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -117,11 +117,11 @@ while($row2 = $result2->fetch_object()){
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Confirm to borrow a book to this student?
+        Confirm to borrow a book.
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCEL</button>
-        <button type="button" name="btn-borrow" class="btn btn-primary">CONFIRM</button>
+        <button type="submit" name="btn-borrow" class="btn btn-primary">CONFIRM</button>
       </div>
     </div>
   </div>
@@ -158,20 +158,23 @@ while($row2 = $result2->fetch_object()){
             </tr>
         </thead>
         <tbody>
+        
 				<?php 																																							
-							$query = "SELECT borrowed.id, book.call_no, book.author, book.title, borrower.school_id, concat(borrower.f_name,' ',borrower.m_name,' ',borrower.l_name) as student, borrowed.date_borrowed FROM borrowed inner join book inner join borrower where borrowed.id_book = book.id AND borrowed.id_borrower = borrower.id order by borrowed.date_borrowed desc ";
+							$query = "SELECT borrowed.id, book.call_no, book.author, book.title, borrower.school_id, concat(borrower.f_name,' ',borrower.m_name,' ',borrower.l_name) as student, borrowed.date_borrowed FROM borrowed inner join book inner join borrower where borrowed.id_book = book.id AND borrowed.id_borrower = borrower.id AND borrowed.status = 'BORROWED' order by borrowed.date_borrowed desc ";
 							$result = mysqli_query($conn, $query); 
 																																																
-							while($row = mysqli_fetch_array($result)) { $id =$row["id"]; ?> 
+							while($row = mysqli_fetch_array($result)) {
+
+                 $id =$row["id"]; ?> 
             <tr>
-                <td><?php echo  $row["call_no"]; ?></td>
+                <td> <c class="text-secondary"> <?php echo  $row["call_no"]; ?></c></td>
                 <td><?php echo  $row["author"]; ?></td>
                 <td><?php echo  $row["title"]; ?></td>
-								<td><?php echo  $row["school_id"]; ?></td>
+								<td> <c class="text-primary"> <?php echo  $row["school_id"]; ?></c></td>
 								<td><?php echo  $row["student"]; ?></td>
 								<td><?php echo  $row["date_borrowed"]; ?></td>
 								<td>
-										<a href="form.php?edit=<?php echo $row["id"];?>" class="btn btn-warning btn-e"> Return book</a> 
+                <?php echo "<a class='btn btn-warning btn-d ' onClick=\"javascript: return confirm('Confirm to return book.');\" href='process.php?return_id=".$row['id']."'>"; ?> Return book </a>
                             </td>
                
             </tr>
@@ -184,7 +187,8 @@ while($row2 = $result2->fetch_object()){
         </div>
     </div>
 </div>
- 
+
+
 <?php require_once '..\assets/cdnjs/index.php'; ?>
 <script>
     $(document).ready(function () {
