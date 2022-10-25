@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 24, 2022 at 09:48 AM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Generation Time: Oct 25, 2022 at 08:05 AM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -54,16 +54,23 @@ CREATE TABLE `borrowed` (
   `id` int(11) NOT NULL,
   `id_book` int(11) NOT NULL,
   `id_borrower` int(11) NOT NULL,
-  `date_borrowed` date NOT NULL
+  `date_borrowed` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `date_returned` timestamp NULL DEFAULT NULL,
+  `assisted_by` varchar(100) DEFAULT NULL,
+  `status` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `borrowed`
 --
 
-INSERT INTO `borrowed` (`id`, `id_book`, `id_borrower`, `date_borrowed`) VALUES
-(1, 1, 1, '2022-10-24'),
-(2, 1, 1, '2022-10-24');
+INSERT INTO `borrowed` (`id`, `id_book`, `id_borrower`, `date_borrowed`, `date_returned`, `assisted_by`, `status`) VALUES
+(1, 1, 1, '2022-10-23 16:00:00', NULL, NULL, ''),
+(2, 1, 1, '2022-10-23 16:00:00', NULL, NULL, ''),
+(3, 1, 3, '2022-10-25 03:14:33', NULL, NULL, ''),
+(4, 2, 1, '2022-10-25 03:14:58', NULL, NULL, ''),
+(7, 5, 3, '2022-10-25 05:57:01', NULL, NULL, 'borrowed'),
+(10, 2, 1, '2022-10-25 05:58:18', NULL, NULL, 'BORROWED');
 
 -- --------------------------------------------------------
 
@@ -90,23 +97,6 @@ CREATE TABLE `borrower` (
 INSERT INTO `borrower` (`id`, `academic`, `f_name`, `m_name`, `l_name`, `school_id`, `course`, `phone`, `email`) VALUES
 (1, 'STUDENT', 'renz', 'dayondon', 'aquit', '2020305414', 'BSMB', '09062905452', 'renz@mail.com'),
 (3, 'SCHOOL STAFF', 'Guilelr', 'C', 'Cabatuan', '1111', 'STAFF', '09090909', 'guiler@mail.com');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `returned`
---
-
-CREATE TABLE `returned` (
-  `id` int(11) NOT NULL,
-  `book` varchar(255) NOT NULL,
-  `author` varchar(255) NOT NULL,
-  `borrower` varchar(255) NOT NULL,
-  `date_borrowed` date NOT NULL,
-  `date_returned` date NOT NULL,
-  `remarks` varchar(255) NOT NULL,
-  `assisted_by` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -161,12 +151,6 @@ ALTER TABLE `borrower`
   ADD UNIQUE KEY `school_id` (`school_id`);
 
 --
--- Indexes for table `returned`
---
-ALTER TABLE `returned`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -188,19 +172,13 @@ ALTER TABLE `book`
 -- AUTO_INCREMENT for table `borrowed`
 --
 ALTER TABLE `borrowed`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `borrower`
 --
 ALTER TABLE `borrower`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `returned`
---
-ALTER TABLE `returned`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user`

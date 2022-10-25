@@ -67,8 +67,8 @@
 <div class="col-sm-3">
     <div class="card">
       <div class="card-body">
-			<a href=""><img src="..\assets/images/returns.png" alt="" class="myIcon"></a>
-			<p class="card-text">Returns </p>
+			<a href="..\reports/"><img src="..\assets/images/returns.png" alt="" class="myIcon"></a>
+			<p class="card-text">Reports </p>
       </div>
     </div>
   </div>
