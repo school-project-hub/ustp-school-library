@@ -32,7 +32,7 @@
                 <th>Call No.</th>
                 <th>Author</th>
                 <th>Title</th>
-								<th ><p style="float: right;">Action</p></th>
+								<th ><c style="float: right;">Action</c></th>
                
             </tr>
         </thead>

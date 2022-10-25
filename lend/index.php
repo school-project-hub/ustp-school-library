@@ -1,5 +1,21 @@
 <?php require '..\auth/index.php'; ?>
 <?php require_once "..\config/index.php"; ?>
+ <?php
+$select = "SELECT * FROM book ";
+$result = $conn->query($select);
+$option = '<option value="">SELECT BOOK</option>';
+while($row = $result->fetch_object()){
+    $option .= '<option value="'.$row->id.'">'.$row->call_no.'</option>';
+}
+?> 
+<?php
+$select2 = "SELECT * FROM borrower ";
+$result2 = $conn->query($select2);
+$option2 = '<option value="">SELECT STUDENT</option>';
+while($row2 = $result2->fetch_object()){
+    $option2 .= '<option value="'.$row2->id.'">'.$row2->school_id.'</option>';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +28,6 @@
     <?php require_once '..\assets/cdnjs/toplink.php'; ?>   
     <?php require_once '..\assets/getbootstrap v5.2/index.php'; ?>
 
-
 </head>
 <body>
 <?php include '..\sidenav/index.php'; ?>
@@ -22,42 +37,101 @@
             <div class="card-title"><h3>LEND A BOOK HERE </h3>
             <div class="lend">
                 <P>BOOK DETAILS</P>
-                <div class="form-floating mb-3">
-								<input type="text" class="form-control" id="floatingInput" placeholder="CALL NO." name="callno">
-								<label for="floatingInput">Call No.</label>
-							</div>
+                
+                <script type="text/javascript">
+            function getData(id, divid){
+                $.ajax({
+                    url: 'autoload.php?id='+id, 
+                    success: function(html) {
+                        var ajaxDisplay = document.getElementById(divid);
+                        ajaxDisplay.innerHTML = html;
+                    }
+                });
+            }
+        </script>
+				<script type="text/javascript">
+            function getData2(id2, divid){
+                $.ajax({
+                    url: 'autoload2.php?id='+id2, 
+                    success: function(html) {
+                        var ajaxDisplay = document.getElementById(divid);
+                        ajaxDisplay.innerHTML = html;
+                    }
+                });
+            }
+        </script>
+<form action="process.php" method="post" class="col-md">
+<div class="input-group mb-3">
+  <span class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+</svg></span>
+<div class="form-floating">
+<select name="bookid" id="id"  class="form-control" onchange="getData(this.value, 'displaydata')">
+              <?php echo $option;
+              ?> 
+            </select>
+</div>
+  
+</div>
 
-							<form action="process.php" method="post">
-							<div class="details">
-							<b>Call No. :</b> </br>
-							<b>Author :</b></br>
-							<b>Title :</b></br>
-							<hr class="divider">
-							</div>
+	
+		<div class="details">
+			<div id="displaydata">
+            </div>
+				<hr class="divider">
 
-            </div></div>
+		</div>
+                            
+
+            </div>
+            </div>
             <div class="return">
 						<div class="lend">
                 <P>BORROWER</P>
-                <div class="form-floating mb-3">
-								<input type="text" class="form-control" id="floatingInput" placeholder="CALL NO." name="student_id">
-								<label for="floatingInput">STUDENT ID</label>
-							</div>
+<div class="input-group mb-3">
+  <span class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+</svg></span>
+<div class="form-floating">
+<select name="borrowerid" id="id2"  class="form-control" onchange="getData2(this.value, 'displaydata2')">
+              <?php echo $option2;
+              ?> 
+            </select>
+</div>
+  
+</div>
 
-							<div class="details">
-							<b>Academic :</b> </br>
-							<b>School ID :</b></br>
-							<b>Name :</b></br>
-							<b>Course :</b></br>
-							<b>Contact :</b></br>
-							<hr class="dropdown-divider">
-							</div>
-	<button class="btn btn-primary" style="float: right;">CONFIRM <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-journal-richtext" viewBox="0 0 16 16">
-  <path d="M7.5 3.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0zm-.861 1.542 1.33.886 1.854-1.855a.25.25 0 0 1 .289-.047L11 4.75V7a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 7v-.5s1.54-1.274 1.639-1.208zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
-  <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
-  <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
+<div class="details">
+			<div id="displaydata2">
+            </div>
+				<hr class="divider">
+
+		</div>
+		<!-- Modal -->
+		<form action="process.php" method="post"></form>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmation</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Confirm to borrow a book to this student?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCEL</button>
+        <button type="button" name="btn-borrow" class="btn btn-primary">CONFIRM</button>
+      </div>
+    </div>
+  </div>
+</div>
+		</form>
+	<button class="btn btn-primary" style="float: right;"  data-bs-toggle="modal" data-bs-target="#exampleModal">BORROW <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-index" viewBox="0 0 16 16">
+  <path d="M6.75 1a.75.75 0 0 1 .75.75V8a.5.5 0 0 0 1 0V5.467l.086-.004c.317-.012.637-.008.816.027.134.027.294.096.448.182.077.042.15.147.15.314V8a.5.5 0 1 0 1 0V6.435a4.9 4.9 0 0 1 .106-.01c.316-.024.584-.01.708.04.118.046.3.207.486.43.081.096.15.19.2.259V8.5a.5.5 0 0 0 1 0v-1h.342a1 1 0 0 1 .995 1.1l-.271 2.715a2.5 2.5 0 0 1-.317.991l-1.395 2.442a.5.5 0 0 1-.434.252H6.035a.5.5 0 0 1-.416-.223l-1.433-2.15a1.5 1.5 0 0 1-.243-.666l-.345-3.105a.5.5 0 0 1 .399-.546L5 8.11V9a.5.5 0 0 0 1 0V1.75A.75.75 0 0 1 6.75 1zM8.5 4.466V1.75a1.75 1.75 0 1 0-3.5 0v5.34l-1.2.24a1.5 1.5 0 0 0-1.196 1.636l.345 3.106a2.5 2.5 0 0 0 .405 1.11l1.433 2.15A1.5 1.5 0 0 0 6.035 16h6.385a1.5 1.5 0 0 0 1.302-.756l1.395-2.441a3.5 3.5 0 0 0 .444-1.389l.271-2.715a2 2 0 0 0-1.99-2.199h-.581a5.114 5.114 0 0 0-.195-.248c-.191-.229-.51-.568-.88-.716-.364-.146-.846-.132-1.158-.108l-.132.012a1.26 1.26 0 0 0-.56-.642 2.632 2.632 0 0 0-.738-.288c-.31-.062-.739-.058-1.05-.046l-.048.002zm2.094 2.025z"/>
 </svg> </button>
-</form>
+
+
             </div>
             </div>
         </div>
@@ -67,7 +141,7 @@
     <div class="card mt-5">
         <div class="card-body">
             <div class="row p-3">
-              <h3>Borrowed Books</h3>
+              <h3>Books in lend</h3>
     
             </div>
         <table id="datatableid" class="table table-bordered table-primary col-md-12">
@@ -76,13 +150,16 @@
                 <th>Call No.</th>
                 <th>Author</th>
                 <th>Title</th>
-								<th ><p style="float: right;">Action</p></th>
+								<th>School ID</th>
+								<th>Borrower</th>
+								<th>Date borrowed</th>
+								<th ><c style="float: right;">Action</c></th>
                
             </tr>
         </thead>
         <tbody>
 				<?php 																																							
-							$query = "SELECT * FROM book";
+							$query = "SELECT borrowed.id, book.call_no, book.author, book.title, borrower.school_id, concat(borrower.f_name,' ',borrower.m_name,' ',borrower.l_name) as student, borrowed.date_borrowed FROM borrowed inner join book inner join borrower where borrowed.id_book = book.id AND borrowed.id_borrower = borrower.id order by borrowed.date_borrowed desc ";
 							$result = mysqli_query($conn, $query); 
 																																																
 							while($row = mysqli_fetch_array($result)) { $id =$row["id"]; ?> 
@@ -90,6 +167,9 @@
                 <td><?php echo  $row["call_no"]; ?></td>
                 <td><?php echo  $row["author"]; ?></td>
                 <td><?php echo  $row["title"]; ?></td>
+								<td><?php echo  $row["school_id"]; ?></td>
+								<td><?php echo  $row["student"]; ?></td>
+								<td><?php echo  $row["date_borrowed"]; ?></td>
 								<td>
 										<a href="form.php?edit=<?php echo $row["id"];?>" class="btn btn-warning btn-e"> Return book</a> 
                             </td>
