@@ -72,7 +72,7 @@
               Settings
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">My account</a></li>
+              <li><a class="dropdown-item" href="..\my_account/">My account</a></li>
               <li><a class="dropdown-item" href="#">Change password</a></li>
               <li>
                 <hr class="dropdown-divider">
