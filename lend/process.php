@@ -22,8 +22,17 @@ require_once "../config/index.php";
                           
 		$id =$_GET['return_id'];  
 		$assisted_by = $_SESSION['librarian'];
+             
+           date_default_timezone_set('Asia/Manila');
+           $date = new DateTime();
+           $result = $date->format('Y-m-d H:i:s');
+           if ($result) {
+            echo $result;
+          } else { // format failed
+            echo "Unknown Time";
+          }             
 
-		  $query = " UPDATE `borrowed` SET `assisted_by`='$assisted_by',`status`='RETURNED' WHERE id = '$id' ";
+		  $query = " UPDATE `borrowed` SET `assisted_by`='$assisted_by',`status`='RETURNED', `date_returned` = '$result' WHERE id = '$id' ";
 		$result = mysqli_query($conn, $query); 	
 		  if($result ==true){							
 						  header('location: index.php');
