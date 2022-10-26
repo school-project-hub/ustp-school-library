@@ -36,6 +36,7 @@ while($row2 = $result2->fetch_object()){
     <div class="p-5">
         <div class="card-body">
             <div class="card-title"><h3>LEND A BOOK HERE </h3>
+           
             <div class="lend">
                 <P>BOOK DETAILS</P>
                 

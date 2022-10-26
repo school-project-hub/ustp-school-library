@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 25, 2022 at 08:05 AM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.3
+-- Generation Time: Oct 26, 2022 at 06:04 AM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,7 +41,6 @@ CREATE TABLE `book` (
 INSERT INTO `book` (`id`, `call_no`, `author`, `title`) VALUES
 (1, 'N101', 'Rrenzy', 'Elective 3'),
 (2, 'N102', 'rrenzy', 'Elective 4'),
-(3, 'N102', 'rrenzy', 'Elective 4'),
 (5, '123', 'jera', 'jeram');
 
 -- --------------------------------------------------------
@@ -69,8 +68,8 @@ INSERT INTO `borrowed` (`id`, `id_book`, `id_borrower`, `date_borrowed`, `date_r
 (2, 1, 1, '2022-10-23 16:00:00', NULL, NULL, ''),
 (3, 1, 3, '2022-10-25 03:14:33', NULL, NULL, ''),
 (4, 2, 1, '2022-10-25 03:14:58', NULL, NULL, ''),
-(7, 5, 3, '2022-10-25 05:57:01', NULL, NULL, 'borrowed'),
-(10, 2, 1, '2022-10-25 05:58:18', NULL, NULL, 'BORROWED');
+(7, 5, 3, '2022-10-26 04:03:14', '2022-10-26 04:03:14', 'RRENZ D AQUIT', 'RETURNED'),
+(10, 2, 1, '2022-10-26 04:04:07', NULL, 'RRENZ D AQUIT', 'borrowed');
 
 -- --------------------------------------------------------
 
