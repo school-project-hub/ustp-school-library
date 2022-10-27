@@ -29,6 +29,14 @@
     </div>
   </div>
   <div class="card">
+    <img src="..\assets/developers/carmel2.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Carmel Mutya</h5>
+      <p class="card-text">Stay strong lang ta babe '<?php echo '<3'; ?> </p>
+      <p class="card-text"><small class="text-muted">Nagmamahal --> Rrenz</small></p>
+    </div>
+  </div>
+  <div class="card">
     <img src="..\assets/developers/jemaicamae davin.jpg" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Jemaicame Davin</h5>
@@ -57,6 +65,15 @@
     </div>
   </div>
   <div class="card">
+    <img src="..\assets/developers/Russel John Barameda.jpg" class="card-img-top" alt="..." >
+    <div class="card-body">
+      <h5 class="card-title">Russel John Barameda</h5>
+      <p class="card-text">Nagtarong ug skwela while inlove ni Mary jane Salem</p>
+      <p class="card-text"><small class="text-muted">300 B.C.</small></p>
+    </div>
+  </div>
+  
+  <div class="card">
     <img src="..\assets/developers/mariel vapor.jpg" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Mariel Vapor</h5>
@@ -76,6 +93,14 @@
 						</div>
 						<div class="row">
 						<div class="card-group">
+            <div class="card">
+    <img src="..\assets/developers/Dina Sumbol.jpg" class="card-img-top" alt="..." >
+    <div class="card-body">
+      <h5 class="card-title">Dina Sumbol</h5>
+      <p class="card-text">Mother of the seven dragons.</p>
+      <p class="card-text"><small class="text-muted">400 B.C.</small></p>
+    </div>
+  </div>
   <div class="card">
     <img src="..\assets/developers/norven tero.jpg" class="card-img-top" alt="...">
     <div class="card-body">
@@ -108,7 +133,7 @@
     <img src="..\assets/developers/carmel.jpg" class="card-img-top"  alt="Profile">
     <div class="card-body">
       <h5 class="card-title">Carmel Mutya</h5>
-      <p class="card-text">Diri ang Exciting part.</p>
+      <p class="card-text">Hi.</p>
       <p class="card-text"><small class="text-muted"></small></p>
     </div>
   </div>
