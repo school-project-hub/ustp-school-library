@@ -88,7 +88,7 @@
 
 		<div class="footer2">
 		<div class="">
-		<p><img src="..\assets/images/info.png" alt="" style="height: 4vh;"> <a href="">AboutUs</a></p>
+		<p><img src="..\assets/images/info.png" alt="" style="height: 4vh;"> <a href="..\developers/" target="_blank">AboutUs</a></p>
 		</div>
 		</div>
 

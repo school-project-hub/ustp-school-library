@@ -3,8 +3,7 @@ session_start();
 if(isset($_POST["btn-login"])){
   require_once "..\config/index.php";
   	$username = $_POST['username'];
-    //$pw = md5($_POST['pw']);
-		$pw =$_POST['pw'];
+    $pw = md5($_POST['pw']);
                     
     $query = mysqli_query($conn, "SELECT `id`, concat(`f_name`,' ', `m_name`,' ', `l_name`) as librarian, `username`, `pw`,school_id, `birth`, `sex`, `phone`, `email`  FROM `user` WHERE `username` = '$username' AND `pw` = '$pw' ");
     $rows = mysqli_num_rows($query);

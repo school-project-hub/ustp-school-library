@@ -43,8 +43,10 @@
         </thead>
         <tbody>
 				<?php 																																							
-							$query = "SELECT borrowed.id, book.call_no, book.author, book.title, borrower.school_id, concat(borrower.f_name,' ',borrower.m_name,' ',borrower.l_name) as student, borrowed.date_borrowed, borrowed.date_returned, borrowed.status, borrowed.assisted_by FROM borrowed inner join book inner join borrower where borrowed.id_book = book.id AND borrowed.id_borrower = borrower.id AND borrowed.status = 'RETURNED' order by borrowed.date_borrowed desc ";
-							$result = mysqli_query($conn, $query); 
+							$query = "SELECT  borrowed.id, book.call_no, book.author, book.title, borrower.school_id, concat(borrower.f_name,' ',borrower.m_name,' ',borrower.l_name) as student, borrowed.date_borrowed, borrowed.date_returned, borrowed.status, borrowed.assisted_by FROM borrowed inner join book inner join borrower where borrowed.id_book = book.id AND borrowed.id_borrower = borrower.id AND borrowed.status = 'RETURNED' order by borrowed.date_borrowed desc ";
+							$query2= "SELECT count(id) AS total from borrowed where status = 'RETURNED' ";
+                            $result = mysqli_query($conn, $query); 
+                            $result2 = mysqli_query($conn, $query2); 
 																																																
 							while($row = mysqli_fetch_array($result)) { $id =$row["id"]; ?> 
             <tr>
@@ -56,14 +58,17 @@
 				<td><?php echo  $row["date_borrowed"]; ?></td>
                 <td><?php echo  $row["date_returned"]; ?></td>
                 <td><?php echo  $row["status"]; ?></td>
-                <td><?php echo  $row["assisted_by"]; ?></td>
+                <td><?php echo  $row["assisted_by"]; }?></td>
                
             </tr>
-								<?php }?>
+            
+								
         </tbody>
       
     </table>
-
+    <?php
+            while($row2 = mysqli_fetch_array($result2)){ ?>
+            <?php echo 'Total Reports: '. $row2['total']; }?>
 
         </div>
     </div>

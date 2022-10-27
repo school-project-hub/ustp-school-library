@@ -5,8 +5,17 @@ if(isset($_POST["btn-borrow"])){
 	require_once "../config/index.php";
 	$bookid = $_POST['bookid'];
 	$borrowerid = $_POST['borrowerid'];
+
+	date_default_timezone_set('Asia/Manila');
+	$date = new DateTime();
+	$result = $date->format('Y-m-d H:i:s');
+	if ($result) {
+	 echo $result;
+   } else { // format failed
+	 echo "Unknown Time";
+   } 
 	
-	$sql = " INSERT INTO `borrowed`( `id_book`, `id_borrower`, `status`)  VALUES ('$bookid','$borrowerid', 'BORROWED') ";
+	$sql = " INSERT INTO `borrowed`( `id_book`, `id_borrower`, `status`, `date_borrowed`)  VALUES ('$bookid','$borrowerid', 'BORROWED','$result') ";
 	if ($conn->query($sql) === TRUE) {
 		header("location: index.php");
 	} else {

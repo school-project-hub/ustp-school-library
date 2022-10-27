@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 26, 2022 at 06:04 AM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Generation Time: Oct 27, 2022 at 02:50 AM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -39,9 +39,7 @@ CREATE TABLE `book` (
 --
 
 INSERT INTO `book` (`id`, `call_no`, `author`, `title`) VALUES
-(1, 'N101', 'Rrenzy', 'Elective 3'),
-(2, 'N102', 'rrenzy', 'Elective 4'),
-(5, '123', 'jera', 'jeram');
+(6, 'R101', 'Jose Rizal', 'Noli Me Tangere (Touch Me Not)');
 
 -- --------------------------------------------------------
 
@@ -53,8 +51,8 @@ CREATE TABLE `borrowed` (
   `id` int(11) NOT NULL,
   `id_book` int(11) NOT NULL,
   `id_borrower` int(11) NOT NULL,
-  `date_borrowed` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `date_returned` timestamp NULL DEFAULT NULL,
+  `date_borrowed` datetime NOT NULL,
+  `date_returned` datetime DEFAULT NULL,
   `assisted_by` varchar(100) DEFAULT NULL,
   `status` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -64,12 +62,8 @@ CREATE TABLE `borrowed` (
 --
 
 INSERT INTO `borrowed` (`id`, `id_book`, `id_borrower`, `date_borrowed`, `date_returned`, `assisted_by`, `status`) VALUES
-(1, 1, 1, '2022-10-23 16:00:00', NULL, NULL, ''),
-(2, 1, 1, '2022-10-23 16:00:00', NULL, NULL, ''),
-(3, 1, 3, '2022-10-25 03:14:33', NULL, NULL, ''),
-(4, 2, 1, '2022-10-25 03:14:58', NULL, NULL, ''),
-(7, 5, 3, '2022-10-26 04:03:14', '2022-10-26 04:03:14', 'RRENZ D AQUIT', 'RETURNED'),
-(10, 2, 1, '2022-10-26 04:04:07', NULL, 'RRENZ D AQUIT', 'borrowed');
+(13, 6, 4, '2022-10-27 08:17:06', NULL, NULL, 'BORROWED'),
+(14, 6, 4, '2022-10-27 08:17:29', '2022-10-27 08:17:34', 'Reynaldo Dayondon Aquit', 'RETURNED');
 
 -- --------------------------------------------------------
 
@@ -81,7 +75,7 @@ CREATE TABLE `borrower` (
   `id` int(11) NOT NULL,
   `academic` varchar(100) NOT NULL,
   `f_name` varchar(30) NOT NULL,
-  `m_name` varchar(30) NOT NULL,
+  `m_name` varchar(30) DEFAULT NULL,
   `l_name` varchar(30) NOT NULL,
   `school_id` varchar(100) NOT NULL,
   `course` varchar(255) NOT NULL,
@@ -94,8 +88,7 @@ CREATE TABLE `borrower` (
 --
 
 INSERT INTO `borrower` (`id`, `academic`, `f_name`, `m_name`, `l_name`, `school_id`, `course`, `phone`, `email`) VALUES
-(1, 'STUDENT', 'renz', 'dayondon', 'aquit', '2020305414', 'BSMB', '09062905452', 'renz@mail.com'),
-(3, 'SCHOOL STAFF', 'Guilelr', 'C', 'Cabatuan', '1111', 'STAFF', '09090909', 'guiler@mail.com');
+(4, 'STUDENT', 'Reajan', '', 'Kiamco', '2020123456', 'BSED', '091234679', 'kiamco@mail.com');
 
 -- --------------------------------------------------------
 
@@ -122,7 +115,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `f_name`, `m_name`, `l_name`, `birth`, `sex`, `phone`, `email`, `school_id`, `username`, `pw`) VALUES
-(1, 'RRENZ', 'D', 'AQUIT', '2022-10-17', 'M', '09062905452', 'aquit.reynaldo@gmail.com', '202054154', 'admin', 'admin');
+(16, 'Reynaldo', 'Dayondon', 'Aquit', '2022-10-27', 'M', '09387633029', 'aquit.reynaldo@gmail.com', '2020305414', 'rrenzoy', '21232f297a57a5a743894a0e4a801fc3');
 
 --
 -- Indexes for dumped tables
@@ -165,25 +158,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `book`
 --
 ALTER TABLE `book`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `borrowed`
 --
 ALTER TABLE `borrowed`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `borrower`
 --
 ALTER TABLE `borrower`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Constraints for dumped tables
