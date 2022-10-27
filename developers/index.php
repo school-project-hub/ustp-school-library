@@ -88,7 +88,7 @@
     <img src="..\assets/developers/trixie lusing.jpg" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Trixie Lusing</h5>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      <p class="card-text">Magniwang diai Ang collator_get_error_code? Ako mn gd ky ... Ah! Basta ky buhi!</p>
       <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     </div>
   </div>
