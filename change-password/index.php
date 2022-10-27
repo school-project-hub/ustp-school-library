@@ -24,15 +24,15 @@
             <div class="content col-md-5">
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Current password</span>
-                <input name="cpw" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                <input name="cpw" type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">New password</span>
-                <input name="npw" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"required>
+                <input name="npw" type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"required>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Confirm password</span>
-                <input name="fpw" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"required>
+                <input name="fpw" type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"required>
             </div>
             <button name="btn-cpw" class="btn btn-warning "><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
   <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>

@@ -56,7 +56,7 @@
                             <div class="col-md-5 ps-0 d-none d-md-block">
                                 <div class="form-right h-100 bg-primary text-white text-center pt-5">
                                     
-                                    <img src="assets/images/ustp-logo.png" alt="ustp logo" srcset="">
+                                    <img src="assets/images/logo.png" alt="ustp logo" srcset="">
                                 </div>
                             </div>
                         </div>
