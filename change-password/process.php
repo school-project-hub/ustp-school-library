@@ -2,9 +2,9 @@
 session_start();
 if(isset($_POST["btn-cpw"])){
   require_once "..\config/index.php";
-  	$cpw = $_POST['cpw'];
-    $npw = $_POST['npw'];
-    $fpw = $_POST['fpw'];
+  	$cpw = md5($_POST['cpw']);
+    $npw = md5($_POST['npw']);
+    $fpw = md5($_POST['fpw']);
 
     $query = mysqli_query($conn, "SELECT * FROM `user` WHERE `pw` = '$cpw' ");
     $rows = mysqli_num_rows($query);
