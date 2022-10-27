@@ -83,11 +83,11 @@
 </div>
 <div class="row">
 <div class="form-floating mb-3 cols col-6">
-  <input type="text" class="form-control" id="floatingInput" placeholder="AUTHOR" name="fname" value="<?php echo $row['f_name'] ?>" >
+  <input type="text" class="form-control" id="floatingInput" placeholder="AUTHOR" name="fname" value="<?php echo $row['f_name'] ?>"  required>
   <label for="floatingPassword">&nbsp;&nbsp;&nbsp; First name</label>
 </div>
 <div class="form-floating cols col-6">
-  <input type="text" class="form-control" id="floatingInput" placeholder="TITLE" name="school_id" value="<?php echo $row['school_id'] ?>">
+  <input type="text" class="form-control" id="floatingInput" placeholder="TITLE" name="school_id" value="<?php echo $row['school_id'] ?>"required>
   <label for="floatingPassword"> &nbsp;&nbsp;&nbsp; School ID</label>
 </div>
 </div>
@@ -97,17 +97,17 @@
   <label for="floatingPassword">&nbsp;&nbsp;&nbsp; Middle name</label>
 </div>
 <div class="form-floating cols col-6">
-  <input type="number" class="form-control" id="floatingInput" placeholder="TITLE" name="phone" value="<?php echo $row['phone'] ?>">
+  <input type="number" class="form-control" id="floatingInput" placeholder="TITLE" name="phone" value="<?php echo $row['phone'] ?>"required>
   <label for="floatingPassword"> &nbsp;&nbsp;&nbsp; Phone</label>
 </div>
 </div>
 <div class="row">
 <div class="form-floating mb-3 cols col-6">
-  <input type="text" class="form-control" id="floatingInput" placeholder="AUTHOR" name="lname" value="<?php echo $row['l_name'] ?>" >
+  <input type="text" class="form-control" id="floatingInput" placeholder="AUTHOR" name="lname" value="<?php echo $row['l_name'] ?>" required>
   <label for="floatingPassword">&nbsp;&nbsp;&nbsp; Last name</label>
 </div>
 <div class="form-floating cols col-6">
-  <input type="email" class="form-control" id="floatingInput" placeholder="TITLE" name="email" value="<?php echo $row['email'] ?>">
+  <input type="email" class="form-control" id="floatingInput" placeholder="TITLE" name="email" value="<?php echo $row['email'] ?>"required>
   <label for="floatingPassword"> &nbsp;&nbsp;&nbsp; Email</label>
 </div>
 </div>
@@ -157,11 +157,11 @@
 </div>
 <div class="row">
 <div class="form-floating mb-3 cols col-6">
-  <input type="text" class="form-control" id="floatingInput" placeholder="AUTHOR" name="fname" >
+  <input type="text" class="form-control" id="floatingInput" placeholder="AUTHOR" name="fname" required>
   <label for="floatingPassword">&nbsp;&nbsp;&nbsp; First name</label>
 </div>
 <div class="form-floating cols col-6">
-  <input type="text" class="form-control" id="floatingInput" placeholder="TITLE" name="school_id" >
+  <input type="text" class="form-control" id="floatingInput" placeholder="TITLE" name="school_id" required>
   <label for="floatingPassword"> &nbsp;&nbsp;&nbsp; School ID</label>
 </div>
 </div>
@@ -171,17 +171,17 @@
   <label for="floatingPassword">&nbsp;&nbsp;&nbsp; Middle name</label>
 </div>
 <div class="form-floating cols col-6">
-  <input type="number" class="form-control" id="floatingInput" placeholder="TITLE" name="phone" >
+  <input type="number" class="form-control" id="floatingInput" placeholder="TITLE" name="phone" required>
   <label for="floatingPassword"> &nbsp;&nbsp;&nbsp; Phone</label>
 </div>
 </div>
 <div class="row">
 <div class="form-floating mb-3 cols col-6">
-  <input type="text" class="form-control" id="floatingInput" placeholder="AUTHOR" name="lname" >
+  <input type="text" class="form-control" id="floatingInput" placeholder="AUTHOR" name="lname" required>
   <label for="floatingPassword">&nbsp;&nbsp;&nbsp; Last name</label>
 </div>
 <div class="form-floating cols col-6">
-  <input type="email" class="form-control" id="floatingInput" placeholder="TITLE" name="email" >
+  <input type="email" class="form-control" id="floatingInput" placeholder="TITLE" name="email" required>
   <label for="floatingPassword"> &nbsp;&nbsp;&nbsp; Email</label>
 </div>
 </div>
